@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+
+        var array = new Array()
+        var num;
+        var suma = 0;
+        
+        while(true){
+            var hola = prompt("introduce un numero, si quieres salir, introduce un numero menor igual que 0")
+            num = parseInt(hola)
+            if(num <= 0){
+                break
+            }else{
+                array.push(num)
+                var suma =+ num
+            }
+            
+        }
+
+        document.write("la media es : "+(suma / array.length))
+
+
+    </script>
+</body>
+</html>

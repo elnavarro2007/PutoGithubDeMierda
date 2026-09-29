@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">Dog_age</string>
+    <string name="calcular">ACTIVATE CAM!!!!!</string>
+    <string name="hola">"tu edad seria : %d "</string>
+</resources>

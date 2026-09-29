@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Edad_Canina</string>
+    <string name="calcular">ACTIVAR CAM!!!!!</string>
+
+    <string name="hola">"tu edad seria : %d "</string>
+</resources>

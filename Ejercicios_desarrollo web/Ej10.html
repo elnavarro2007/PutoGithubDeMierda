@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+       const precio = 12.5
+
+       var nombre = prompt("introduceme tu nombre")
+        var edad = prompt("Introduce tu edad")
+        var dia = prompt("introduce el dia")
+
+        if(edad >=18 && edad  <=26 | edad > 60 ){
+            precio = precio - (precio * 0.15)
+            document.write("descuento por edad")
+        }
+        if(dia == "miercoles" | dia == "viernes"){
+            precio = precio - (precio * 0.05)  
+            document.write("descuento por dia")
+        }
+
+        document.write("precio sin iva",precio)
+        document.write("<br>")
+        document.write("precio con iva",(precio + (precio *0.21)))
+
+
+
+
+
+    </script>
+</body>
+</html>
