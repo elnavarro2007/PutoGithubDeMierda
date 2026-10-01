@@ -1,0 +1,61 @@
+
+C:\Users\dam2\Desktop\si\PSP\UD1>echo Comenzando ejecuci贸n   && date /t   && time /t   && dir   && ipconfig   && echo Fin de la ejecuci贸n 
+Comenzando ejecuci贸n 
+01/10/2026 
+20:57
+ El volumen de la unidad C no tiene etiqueta.
+ El nero de serie del volumen es: 24F5-997C
+
+ Directorio de C:\Users\dam2\Desktop\si\PSP\UD1
+
+01/10/2026  20:56    <DIR>          .
+21/09/2026  16:54    <DIR>          ..
+01/10/2026  20:56    <DIR>          .idea
+01/10/2026  20:55                98 comandos.bat
+01/10/2026  20:55                 0 error.log
+01/10/2026  20:57                 0 errores.log
+01/10/2026  20:50                 0 errores.txt
+28/09/2026  16:32    <DIR>          hola
+21/09/2026  16:24    <DIR>          out
+21/09/2026  16:19               433 PSP.iml
+01/10/2026  20:57                 0 salida.log
+01/10/2026  20:50               804 salida.txt
+01/10/2026  20:03    <DIR>          src
+               7 archivos          1.335 bytes
+               6 dirs  1.653.048.274.944 bytes libres
+
+Configuraci IP de Windows
+
+
+Adaptador de Ethernet vEthernet (Default Switch):
+
+   Sufijo DNS especico para la conexi. . : 
+   Vculo: direcci IPv6 local. . . : fe80::5d8a:e620:a78:cec0%25
+   Direcci IPv4. . . . . . . . . . . . . . : 172.21.0.1
+   M爏cara de subred . . . . . . . . . . . . : 255.255.240.0
+   Puerta de enlace predeterminada . . . . . : 
+
+Adaptador de Ethernet vEthernet (WSL (Hyper-V firewall)):
+
+   Sufijo DNS especico para la conexi. . : 
+   Vculo: direcci IPv6 local. . . : fe80::9fc0:b8b:ccea:9b21%39
+   Direcci IPv4. . . . . . . . . . . . . . : 172.19.144.1
+   M爏cara de subred . . . . . . . . . . . . : 255.255.240.0
+   Puerta de enlace predeterminada . . . . . : 
+
+Adaptador de Ethernet Ethernet:
+
+   Sufijo DNS especico para la conexi. . : 
+   Vculo: direcci IPv6 local. . . : fe80::5501:e295:3e90:3a61%12
+   Direcci IPv4. . . . . . . . . . . . . . : 192.168.50.56
+   M爏cara de subred . . . . . . . . . . . . : 255.255.255.0
+   Puerta de enlace predeterminada . . . . . : 192.168.50.254
+
+Adaptador de Ethernet Ethernet 2:
+
+   Sufijo DNS especico para la conexi. . : 
+   Vculo: direcci IPv6 local. . . : fe80::6a95:5b11:b572:4db6%9
+   Direcci IPv4. . . . . . . . . . . . . . : 192.168.56.1
+   M爏cara de subred . . . . . . . . . . . . : 255.255.255.0
+   Puerta de enlace predeterminada . . . . . : 
+Fin de la ejecuci贸n

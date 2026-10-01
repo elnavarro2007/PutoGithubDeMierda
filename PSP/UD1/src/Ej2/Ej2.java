@@ -8,12 +8,7 @@ public class Ej2 {
 
         File archivo = new File("salida.txt");
         File archivo2 = new File("errores.txt");
-        String comando = "echo Usuario actual:\n" +
-                "whoami\n" +
-                "echo Directorio actual:\n" +
-                "cd\n" +
-                "echo Contenido del directorio:\n" +
-                "dir";
+        String comando = "echo Usuario actual: && whoami && echo Directorio actual: && cd && echo Contenido del directorio: && dir";
 
         try {
             if (!archivo.exists()) {
@@ -26,18 +21,27 @@ public class Ej2 {
             throw new RuntimeException(e);
         }
 
+        ProcessBuilder pb = new ProcessBuilder("cmd.exe","/c",comando);
+        pb.redirectOutput(archivo);
+        pb.redirectError(archivo2);
 
-        try (BufferedReader br = new BufferedReader(new FileReader(archivo));
-        BufferedWriter bw = new BufferedWriter(new FileWriter(archivo))) {
 
-            ProcessBuilder p = new ProcessBuilder("cmd.exe","/c",comando );
-            Process process = p.start();
+        try  {
 
-            p.redirectOutput(archivo);
-            p.redirectError(archivo2);
+
+            Process process = pb.start();
+            System.out.println(process);
+
+            System.out.println(process.waitFor() +"se ha terminao ");
+
+
+
+
 
 
         } catch (IOException e) {
+            throw new RuntimeException(e);
+        } catch (InterruptedException e) {
             throw new RuntimeException(e);
         }
 

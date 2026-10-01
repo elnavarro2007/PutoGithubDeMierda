@@ -1,9 +1,22 @@
-Nombre Correo electrónico Departamento
-Ana García ana.garcia@tecnosoluciones.es Administración
-Carlos Pérez carlos.perez@tecnosoluciones.es Ventas
-Laura Martín laura.martin@tecnosoluciones.es Ventas
-Miguel Sánchez miguel.sanchez@tecnosoluciones.es Compras
-Elena López elena.lopez@tecnosoluciones.es Inventario
-Javier Gómez javier.gomez@tecnosoluciones.es Inventario
-Marta Ruiz marta.ruiz@tecnosoluciones.es Administración
-Pablo Fernández pablo.fernandez@tecnosoluciones.es Compra
+Usuario actual: 
+b304pc16\dam2
+Directorio actual: 
+C:\Users\dam2\Desktop\si\PSP\UD1
+Contenido del directorio: 
+ El volumen de la unidad C no tiene etiqueta.
+ El n�mero de serie del volumen es: 24F5-997C
+
+ Directorio de C:\Users\dam2\Desktop\si\PSP\UD1
+
+01/10/2026  20:49    <DIR>          .
+21/09/2026  16:54    <DIR>          ..
+01/10/2026  20:48    <DIR>          .idea
+01/10/2026  20:45               101 comandos.bat
+01/10/2026  20:50                 0 errores.txt
+28/09/2026  16:32    <DIR>          hola
+21/09/2026  16:24    <DIR>          out
+21/09/2026  16:19               433 PSP.iml
+01/10/2026  20:50                 0 salida.txt
+01/10/2026  20:03    <DIR>          src
+               4 archivos            534 bytes
+               6 dirs  1.653.030.588.416 bytes libres
