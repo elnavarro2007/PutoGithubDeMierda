@@ -27,36 +27,17 @@ class MainWindow(QMainWindow):
 
       plantilla3 = QVBoxLayout()
 
-      plantilla2.addWidget(Color("black")) 
-      plantilla2.addWidget(Color("blue"))
-      plantilla2.addWidget(Color("blue"))
-      plantilla2.addWidget(Color("blue"))
+      plantilla2.addWidget(Color("blue")) 
       plantilla2.addWidget(Color("blue"))
       plantilla2.addWidget(Color("blue"))
 
       plantilla3.addWidget(Color("red")) 
       plantilla3.addWidget(Color("red"))
-      plantilla3.addWidget(Color("black"))
+      plantilla3.addWidget(Color("green"))
 
       plantilla.addLayout(plantilla2)
       plantilla.addWidget(Color("yellow"))
-      plantilla.addWidget(Color("yellow"))
-      plantilla.addWidget(Color("yellow"))
       plantilla.addLayout(plantilla3)
-      plantilla.addWidget(Color("yellow"))
-      plantilla.addWidget(Color("yellow"))
-      plantilla.addWidget(Color("yellow"))
-      plantilla.addWidget(Color("yellow"))
-      plantilla.addWidget(Color("yellow"))
-      plantilla.addWidget(Color("yellow"))
-      plantilla.addWidget(Color("yellow"))
-      plantilla.addWidget(Color("yellow"))
-      plantilla.addWidget(Color("yellow"))
-      plantilla.addWidget(Color("yellow"))
-      plantilla.addWidget(Color("white"))
-      plantilla.addWidget(Color("yellow"))
-
-      
 
 
 
