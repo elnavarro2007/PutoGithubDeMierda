@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        var regex  = new RegExp("^[a-zA-Z0-9%+-_]+@[a-zA-Z0-9%+\\-_]+\\.[a-z]{2,}$")
+        var correo = prompt("introduce un correo")
+
+        if(regex.test(correo)){
+
+            var nombre = correo.split("@")
+            document.write("correcto")
+            document.write("<hr>")
+            document.write("usuario : ",nombre[0])
+            document.write("<hr>")
+            document.write("dominio : ",nombre[1])
+            
+        }
+    </script>
+</body>
+</html>
