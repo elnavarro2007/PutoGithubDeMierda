@@ -1,11 +1,6 @@
-from PyQt6.QtCore import QSize, Qt
+from PyQt6.QtCore import QSize, Qt, QSize
 from PyQt6.QtWidgets import QWidgetAction,QApplication,QToolBar ,QWidget,QTabWidget ,QPushButton,QMainWindow,QLabel,QLineEdit,QVBoxLayout,QCheckBox,QComboBox,QListWidget,QAbstractItemView,QSlider,QDial,QCalendarWidget,QGridLayout,QStackedLayout,QStatusBar
-from PyQt6.QtGui import QPixmap, QAction
-
-from Cuadrado import Color
-
-
-
+from PyQt6.QtGui import QPixmap, QAction,QIcon
 
 
 class MainWindow(QMainWindow): 
@@ -22,16 +17,34 @@ class MainWindow(QMainWindow):
 
 
       barra = QToolBar("Barra de herramientas")
+      barra.setIconSize(QSize(16,16))
       self.addToolBar(barra)
 
-      self.setCentralWidget(etiqueta)
 
-      boton = QAction(" Mi boton", self)
+     
+
+      boton = QAction(QIcon("icons/$pixil-frame-0 (4).png")," Mi botón", self)
       boton.setStatusTip("Este es mi boton")
       boton.triggered.connect(self.botonPulsado)
       barra.addAction(boton)
 
+
+      
+
+
+      boton2 = QAction(QIcon("icons/acorn.png")," Mi otro botón", self)
+      boton2.setStatusTip("Este es mi otro boton")
+      boton2.triggered.connect(self.botonPulsado)
+      barra.addAction(boton2)
+
+      barra.addSeparator()
+
+
+      barra.addWidget(QLabel("Texto"))
+      barra.addWidget(QCheckBox("seleccionar"))
+
       self.setStatusBar(QStatusBar(self))
+      self.setCentralWidget(etiqueta)
 
 
     def botonPulsado(self,s):
@@ -39,28 +52,7 @@ class MainWindow(QMainWindow):
 
     
 
-
-
-
-
-
-      
-
-
-
-      
-
-
-
-
-
- 
-
-
-
-
-
-    
+   
 app = QApplication([])
 
 window = MainWindow()
