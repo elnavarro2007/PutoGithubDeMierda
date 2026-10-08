@@ -10,7 +10,7 @@ public class Ej1 {
         System.out.println("Introduce una frase");
         String frase = sc.nextLine().toLowerCase();
 
-        for ()
+
 
 
 
