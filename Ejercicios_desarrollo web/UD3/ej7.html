@@ -8,12 +8,19 @@
 <body>
     <script>
         const frase = prompt("Introduce una frase ")
-        const f = frase.toLowerCase()
-        const invertido = 
+        let f = frase.toLowerCase().replaceAll(" ","")
+        let invertida = f.split("").reverse().join("");
+        
 
-        document.write(f)
+        console.log(f)
 
-        document.write(invertido)
+        if(invertida === f ){
+            document.write("   : Es palindromo")
+        }else{
+            document.write("   : No Es palindromo")
+        }
+        
+        
         
         
 

@@ -24,7 +24,7 @@ public class LauncherSyncCounter implements Runnable{
     @Override
     public void run() {
         if(value>=0) {
-            for (int i = 0; i < value; i++) {
+            for (int i = 10000; i < value; i++) {
                 counter.increment();
             }
         } else {

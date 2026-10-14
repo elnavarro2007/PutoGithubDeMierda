@@ -5,7 +5,7 @@ public class SamplePriorities extends Thread {
     public void run() {
 // mostrar información por consola
         System.out.println("Executing [" + this.getName() + "]");
-        for (int i = 0; i < 5; i++) {
+        for (int i = 0; i < 5000000; i++) {
             System.out.println("\t(" + this.getName() + ": " + i + ")");
         }
     }

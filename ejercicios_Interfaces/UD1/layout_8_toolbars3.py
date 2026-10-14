@@ -17,7 +17,7 @@ class MainWindow(QMainWindow):
 
 
       barra = QToolBar("Barra de herramientas")
-      barra.setIconSize(QSize(128,128))
+      barra.setIconSize(QSize(16,16))
       self.addToolBar(barra)
 
 
@@ -40,7 +40,7 @@ class MainWindow(QMainWindow):
 
       boton3 = QAction(QIcon("icons/steam.png")," Mi otro botón", self)
       boton3.setStatusTip("Este es mi otro boton")
-
+      boton3.triggered.connect(self.botonPulsado)
       
 
       barra.addSeparator()

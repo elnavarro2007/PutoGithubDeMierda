@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        let nombre_Apellidos = prompt("Introduce nombre y apellidos")
+        var conjunto = nombre_Apellidos
+        console.log(conjunto)
+        let nombre = ""
+        let apellidos = ""
+        let conjunto_apellidos
+        
+        for(var i = 0; i<conjunto.length;i++){
+            nombre += conjunto.charAt(i)
+            console.log(conjunto.charAt(i))
+            if(conjunto.charAt(i) === " "){
+                conjunto_apellidos= i
+                
+                break
+            }
+        }
+        
+
+        for(var i = conjunto_apellidos ; i<conjunto.length;i++){
+            apellidos += conjunto.charAt(i)
+            console.log(conjunto.charAt(i))
+            
+        }
+
+        document.write(apellidos +" , "+nombre)
+        
+
+
+
+
+    </script>
+</body>
+</html>
