@@ -9,19 +9,18 @@
     <script>
         let frase = prompt("Introduce una frase")
         let fraseMm = frase.split(" ")
-        let frasess = ""
+        let f = " "
         var regex = new RegExp(["a-zñ"])
 
-        fraseMm.forEach((e) => {
-            if(!regex.test(e.charAt(0))){
-                e.charAt(0).toUpperCase
+        for (let i = 0; i < fraseMm.length; i++) {
+            let s = fraseMm[i];
+
+            if (s.length > 0) {
+                fraseMm[i] = s.charAt(0).toUpperCase() + s.slice(1);
             }
-            frasess += e
-
-            
-        })
-
-        console.log(frasess)
+            f = f+ " " +fraseMm[i]
+        }
+        document.write(f)
         
 
 

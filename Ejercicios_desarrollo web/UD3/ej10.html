@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        var fecha = prompt("Introduce una fecha")
+
+        var regex = RegExp("^(0[1-9]|1[0-9]|2[0-9]|3[0-1])-(0[1-9]|1[0-2])-([0-9]{1,4})$")
+
+        if(regex.test(fecha)){
+            document.write("la fecha es valida")
+        }else{
+            document.write("no funciona xDDDDDDDDDDDDDDDDD")
+        }
+    </script>
+</body>
+</html>

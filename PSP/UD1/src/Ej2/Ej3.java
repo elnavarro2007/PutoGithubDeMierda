@@ -56,7 +56,7 @@ public class Ej3 {
 
 
         try {
-            Process p= pb.start();
+             Process p= pb.start();
             System.out.println("Proceso empezado");
             System.out.println(p.waitFor() + " proceso finalizado");
 

@@ -2,8 +2,8 @@ from PyQt6.QtWidgets import QApplication, QMainWindow, QPushButton, QWidget, QVB
 
 class OtraVentana(QWidget):
    
-    def __init__(self): # Creación de una función
-        super().__init__() # LLamo al constructor del padre
+    def __init__(self):
+        super().__init__()
 
         plantilla = QVBoxLayout()
         self.etiqueta = QLabel("Otra Ventana")
@@ -11,10 +11,10 @@ class OtraVentana(QWidget):
 
         self.setLayout(plantilla)
 
-class MainWindow(QMainWindow): # Creación de una clase
+class MainWindow(QMainWindow): 
     
-    def __init__(self): # Creación de una función
-        super().__init__() # LLamo al constructor del padre
+    def __init__(self): 
+        super().__init__()  
         
         self.window = None
 
@@ -24,13 +24,10 @@ class MainWindow(QMainWindow): # Creación de una clase
         self.setCentralWidget(boton)
 
     def mostrarOtraVentana(self):
-
-      if self.window is None : 
-         self.window = OtraVentana()
-         self.window.show()
-      else : 
-         self.window.close()
-         self.window= None
+        if self.window.isVisible():
+            self.window.hide()
+        else: 
+            self.window.show()
           
 
 app = QApplication([])

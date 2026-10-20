@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        var regex = RegExp("^(0[1-9]|1[0-9]|2[0-9]|3[0-1])-(0[1-9]|1[0-2])-([0-9]{1,4})$")
+        var mes = ["enero","febrero","marzo","abril","mayo","junio","julio","agosto","septiembre","octubre","noviembre","diciembre"]
+        while(true){
+            var fecha = prompt("Introduce una fecha")
+            if(regex.test(fecha)) {
+                break
+            }else{
+
+            }
+        }
+        var mesArray = fecha.split("-")
+        var dia = mesArray[0]
+        var mess = mesArray[1]
+        var año = mesArray[2]
+
+        document.write(dia + "de "+mes[parseInt(mess)-1]+ " de "+año)
+    </script>
+
+        
+</body>
+</html>
