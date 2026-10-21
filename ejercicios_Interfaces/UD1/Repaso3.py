@@ -33,15 +33,18 @@ class MainWindow(QMainWindow):
         valencia = QRadioButton("Comunitat Valensiana")
 
         #ComboBox
-        boxAlagon = QComboBox()
-        boxValencia = QComboBox()
+        self.boxAlagon = QComboBox()
+        self.boxValencia = QComboBox()
 
         #Listas
-        boxAlagon.addItems(["Teruel","Zalagoza","Huesca"])
-        boxValencia.addItems(["Alicante","Valensia","Castellon"])
+        self.boxAlagon.addItems(["Teruel","Zalagoza","Huesca"])
+        self.boxValencia.addItems(["Alicante","Valensia","Castellon"])
 
+        # Filas
         fila1.addWidget(alagon)
         fila1.addWidget(valencia)
+
+        
 
         vertical.addLayout(fila1)
 
