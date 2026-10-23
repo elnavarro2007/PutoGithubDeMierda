@@ -120,10 +120,11 @@ class MainWindow(QMainWindow):
         print(self.num1)
         self.texto1.setText("")
     def funcionSuma (self,s):
-        self.num2 = 0
+        
         self.num2 = self.texto1.text()
         self.numtotal = int(self.num1) + int(self.num2)
         self.texto1.setText(str(self.numtotal))
+
 
 
     
