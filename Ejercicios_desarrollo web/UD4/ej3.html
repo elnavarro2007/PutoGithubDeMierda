@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <button id= "marcar"> marcar</button>
+    <button id= "desmarcar"> desmarcar</button>
+    <table id="tabla">
+        <tbody id="cuerpo">
+
+        </tbody>
+    </table>
+
+
+    <script>
+        var cuerpo = document.getElementById("cuerpo")
+
+        var marcar = document.getElementById("marcar")
+        var desmarcar = document.getElementById("desmarcar")
+
+
+        for (let i = 0; i < 10; i++) {
+            var fila = document.createElement("tr")
+            for (let j = 0; j < 10; j++) {
+                var num = Math.random() * 100
+
+                // celda
+                var celda = document.createElement("td")
+                var checkbox = document.createElement("input")
+                checkbox.type = 'checkbox'
+                checkbox.id = `chk-${i * j}`
+                checkbox.className = 'mi-checkbox'
+
+                // crear nodo texto
+                var texto = document.createTextNode(" "+num)
+
+                // meter elementos celda 
+                celda.appendChild(checkbox)
+                celda.appendChild(texto)
+            
+
+                // meter celda fila
+
+                fila.appendChild(celda)
+
+
+
+
+
+            }
+            cuerpo.appendChild(fila)
+        }
+
+        var listcheckbox = document.querySelectorAll(".mi-checkbox")
+        
+        
+        marcar.addEventListener('click', function(){
+            listcheckbox.forEach(function(checkbox){
+                checkbox.checked = true
+            });
+        })
+        desmarcar.addEventListener('click', function(){
+            listcheckbox.forEach(function(checkbox){
+                checkbox.checked = false
+            });
+        })        
+    
+    </script>
+</body>
+
+</html>

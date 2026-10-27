@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<style>
+    table {
+        border: 1px solid;
+        padding: 10px;
+    }
+</style>
+<body>
+    
+
+    <table id= "tabla" border= "1px">
+        <tbody id="cuerpo">
+
+        </tbody>
+
+    </table>
+
+
+    <script>
+        var  num = 0
+        
+        var cuerpo = document.getElementById("cuerpo")
+        for (let i = 0; i < 100; i++) {
+            var fila = document.createElement("tr")
+            tabla.appendChild(fila)
+            for(let j = 0; j<100; j++){
+                var celda = document.createElement("td")
+                num++
+                celda.textContent = num
+                fila.appendChild(celda)
+            }
+            cuerpo.appendChild(fila)
+        }
+    </script>
+</body>
+</html>

@@ -10,7 +10,9 @@
         var regex  = new RegExp("^[a-zA-Z0-9%+-_]+@[a-zA-Z0-9%+\\-_]+\\.[a-z]{2,}$")
         var correo = prompt("introduce un correo")
 
-        if(regex.test(correo)){
+
+        var funcion = function(correo ) {
+            if(regex.test(correo)){
 
             var nombre = correo.split("@")
             document.write("correcto")
@@ -19,7 +21,11 @@
             document.write("<hr>")
             document.write("dominio : ",nombre[1])
             
+            }
         }
+
+        funcion(correo)
+
     </script>
 </body>
 </html>

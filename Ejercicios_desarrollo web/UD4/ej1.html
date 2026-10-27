@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <button id="botonAleatorio">Nuevo numero</button>
+    <li>
+        <ul id="lista">
+
+        </ul>
+    </li>
+
+
+
+    <script>
+        var button = document.getElementById("botonAleatorio")
+        var lista = document.getElementById("lista")
+
+        button.addEventListener('click', () => {
+            const random = Math.random() + 100 * (Math.random() * 90)
+
+            var nuevoLi = document.createElement('li')
+
+            nuevoLi.textContent = `Numero ${random }`
+            lista.appendChild(nuevoLi)
+
+        })
+    </script>
+</body>
+</html>
