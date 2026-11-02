@@ -4,16 +4,101 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+
+    <style>
+        table {
+            border: 3px;
+        }
+
+        .festivo {
+            color: red;
+            font-weight: bold;
+        }
+    </style>
 </head>
 <body>
+    <h1 id="mes"></h1>
+    <table id="tabla" border="">
+        <tbody id="cuerpoTabla"></tbody>
+    </table>
+
+
+
     <script>
 
         var meses = ["enero","febrero","marzo","abril","mayo","junio","julio","agosto","septiembre","octubre","noviembre","diciembre"]
         var festivos = [[1,6],[],[],[17,18,23],[1],[],[],[15],[],[12],[1],[6,8,25]]
         var dias = ["lunes","martes","miercoles","jueves","viernes","sabado","domingo"]
 
-        var prompt = prompt("Introduce un mes del enero a diciembre, 0 enero, 11 diciembre etc")
-        var anio = 2025
+
+        var mes = document.getElementById("mes")
+        var tabla = document.getElementById("tabla")
+        var cuerpoTabla = document.getElementById("cuerpoTabla")
+        let num = 0
+
+        // leer mes
+        while(true){
+            var entrada = prompt("Introduce un mes del enero a diciembre, 1 enero, 12 diciembre etc")
+            num = parseInt(entrada)
+            var anio = 2026
+            if(num > 0 && num <=12 && !isNaN(num)){
+                break
+            }
+        }
+
+        mes.append(meses[num-1])
+        var fila1 = document.createElement("tr")
+        
+        // meter dias de la semana
+
+        for(let i = 0; i<dias.length;i++){
+            var celda = document.createElement("td")
+            celda.append(dias[i])
+            fila1.appendChild(celda)
+            cuerpoTabla.appendChild(fila1)
+        }
+
+        // conseguir fechas dias 
+        var fecha = new Date(anio,num-1,1)
+
+        var primerDiaSemana = (fecha.getDay() + 6) % 7
+
+        var diasDelMes = new Date(anio, num, 0).getDate()
+        var festivosMes = festivos[num - 1]
+
+        var dia = 1
+
+        // array bidimensional
+
+        for (let i = 0; i < 510; i++) {
+
+            var filas = document.createElement("tr")
+            for (let j = 0; j < 7; j++) {
+                var celdas = document.createElement("td")
+                
+                if ((i === 0 && j < primerDiaSemana) || dia > diasDelMes) {
+                   
+                } else {
+                    celdas.textContent = dia
+
+                    // Añadir el rojo a los festivos
+                    if (festivosMes.includes(dia)) {
+                        celdas.classList.add("festivo")
+                    }
+
+                    dia++
+                }
+
+                filas.appendChild(celdas)
+            }
+            
+            cuerpoTabla.appendChild(filas)
+
+            if(dia > diasDelMes){
+                break
+            }
+        }
+
         
 
 
