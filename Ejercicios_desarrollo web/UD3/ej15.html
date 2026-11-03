@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        var nacimiento = prompt("Introduce tu fecha de nacimiento")
+        var fNac = new Date (nacimiento)
+        var fechaActual = new Date()
+
+        var tiempo =   fechaActual.getTime() - fNac.getTime()
+        var edad = tiempo / (1000 * 60*60*24*365)
+        document.write(parseInt(edad) +" años tienes")
+    </script>
+</body>
+</html>

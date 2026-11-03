@@ -6,14 +6,77 @@
     <title>Document</title>
 </head>
 <body>
-    <script>
-        var nacimiento = prompt("Introduce tu fecha de nacimiento")
-        var fNac = new Date (nacimiento)
-        var fechaActual = new Date()
+    <h1>Horario de DAM</h1>
+    <table border="">
+        <tbody id="tabla"></tbody>
+    </table>
 
-        var tiempo =   fechaActual.getTime() - fNac.getTime()
-        var edad = tiempo / (1000 * 60*60*24*365)
-        document.write(parseInt(edad) +" años tienes")
+    <script>
+        var tabla = document.getElementById("tabla")
+        
+        let horario=[
+         ["IPPE", "PROY", "IPPE", "AD", "SGE"],
+         ["DI", "SGE", "AD", "AD", "SGE"],
+         ["DI", "SGE", "AD", "AD", "SASP"],
+         ["RECREO","RECREO","RECREO","RECREO","RECREO"],
+         ["DWC", "PMDM", "PMDM", "PROY", "DI"],
+         ["DWC", "PMDM", "PMDM", "PSP", "DI"],
+         ["DWC", "PMDM", "PMDM", "PSP", "DI"]
+         ];  
+        let dias = ["lunes","martes","miercoles","jueves","viernes"]
+
+        var fila = document.createElement("tr")
+        let hora = new Date().setHours(15,45,0,0)
+
+
+        // añadir los dias de la semana
+        for (let i = 0; i < 6; i++) {
+            if (i === 0){
+                var celda = document.createElement("td")
+                fila.appendChild(celda)
+            }else{
+                var celda = document.createElement("td")
+                celda.append(dias[i-1])
+                fila.appendChild(celda)
+            }
+        }
+        tabla.appendChild(fila)
+
+        // el resto
+
+        for (let i = 0; i < horario.length; i++) {
+            var fila = document.createElement("tr")
+            var celdaHora = document.createElement("td")
+
+            // copia de las horas
+            let horaInicio = new Date(hora)
+            let horaFin = new Date(hora)
+
+            if(i === 3){
+                horaFin.setMinutes(horaFin.getMinutes() + 15)
+            }else{
+                horaFin.setMinutes(horaFin.getMinutes() + 50)
+            }
+
+            celdaHora.append(horaInicio.getHours() + ":" + horaInicio.getMinutes() + "-" + horaFin.getHours() + ":" + horaFin.getMinutes())
+            fila.appendChild(celdaHora)
+
+            
+            if(i === 3){
+                hora = new Date(horaFin)
+            }else{
+                hora = new Date(horaFin)
+                hora.setMinutes(hora.getMinutes() + 5)
+            }
+
+            for (let j = 0; j < horario[i].length; j++) {
+                var filaLet = horario[i]
+                var celda = document.createElement("td")
+                celda.append(filaLet[j])
+                fila.appendChild(celda)
+            }
+            tabla.appendChild(fila)
+        }
     </script>
 </body>
 </html>

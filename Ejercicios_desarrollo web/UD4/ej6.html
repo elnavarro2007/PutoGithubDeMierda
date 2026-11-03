@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <button id="com">Comenzar saludo</button>
+    <button id="ter">Terminar saludo</button>
+
+
+    <script>
+        var com = document.getElementById("com")
+        var ter = document.getElementById("ter")
+        var intervalo
+
+        function saludo(){
+            alert("hola")
+        }
+
+        com.addEventListener("click" ,() => {
+            intervalo = setInterval(saludo,5000)
+        })
+
+        ter.addEventListener("click", () => {
+            clearInterval(intervalo)
+        })
+
+    </script>
+</body>
+</html>
