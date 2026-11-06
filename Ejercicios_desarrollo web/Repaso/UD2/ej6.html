@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Factorial</title>
+</head>
+<body>
+
+    <h2>Calcular factorial</h2>
+
+    <label>Introduce un número:</label>
+    <input type="number" id="numero" min="0">
+    <button id="button">Calcular</button>
+
+    <p id="resultado"></p>
+
+    <script>
+
+        var button = document.getElementById("button")
+
+        button.addEventListener("click", () =>{
+            var num = parseInt(document.getElementById("numero").value);
+            var resultado = document.getElementById("resultado");
+
+            if (isNaN(num) || num < 0) {
+                resultado.textContent = "Por favor, introduce un número entero positivo o cero.";
+                return;
+            }
+
+            var factorial = 1;
+            for (var i = 1; i <= num; i++) {
+                factorial = factorial * i;
+            }
+
+            resultado.textContent = "El factorial de " + num + " es: " + factorial;
+
+        } )
+
+
+
+        
+    </script>
+
+</body>
+</html>

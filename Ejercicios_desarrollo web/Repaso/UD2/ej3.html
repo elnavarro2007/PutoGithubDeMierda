@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <table border="">
+        <tbody id="tabla">
+
+        </tbody>
+    </table>
+
+
+    <script>
+        var tabla = document.getElementById("tabla")
+
+        for (let i = 0; i < 11; i++) {
+                var fila = document.createElement("tr")
+                var doc = document.createTextNode(`tabla del ${i} : `)
+                var celda2 = document.createElement("td")
+                celda2.append(doc)
+                fila.append(celda2)
+            for (let j = 0; j < 11; j++) {
+                var mult = document.createTextNode( i + " * "+j + " = "+ (i*j))
+                var celda = document.createElement("td")
+                
+                celda.append(mult)
+
+                fila.append(celda)
+                
+            }
+            tabla.append(fila)
+
+        }
+    </script>
+
+
+</body>
+</html>

@@ -26,7 +26,7 @@
         let dias = ["lunes","martes","miercoles","jueves","viernes"]
 
         var fila = document.createElement("tr")
-        let hora = new Date().setHours(15,45,0,0)
+        
 
 
         // añadir los dias de la semana
@@ -43,6 +43,7 @@
         tabla.appendChild(fila)
 
         // el resto
+        let hora = new Date().setHours(15,45,0,0)
 
         for (let i = 0; i < horario.length; i++) {
             var fila = document.createElement("tr")

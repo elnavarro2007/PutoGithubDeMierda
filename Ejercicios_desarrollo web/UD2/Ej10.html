@@ -7,28 +7,26 @@
 </head>
 <body>
     <script>
-       const precio = 12.5
+       let precio = 12.5
 
        var nombre = prompt("introduceme tu nombre")
         var edad = prompt("Introduce tu edad")
         var dia = prompt("introduce el dia")
 
-        if(edad >=18 && edad  <=26 | edad > 60 ){
+        if(edad >= 18 && edad <= 26 || edad > 60 ){
             precio = precio - (precio * 0.15)
-            document.write("descuento por edad")
+            document.write("descuento por edad del 15%")
+            document.write("<br>")
         }
-        if(dia == "miercoles" | dia == "viernes"){
+        if(dia == "miercoles" || dia == "viernes"){
             precio = precio - (precio * 0.05)  
-            document.write("descuento por dia")
+            document.write("descuento por dia del 5%")
+            document.write("<br>")
         }
 
-        document.write("precio sin iva",precio)
+        document.write("precio sin iva " + precio)
         document.write("<br>")
-        document.write("precio con iva",(precio + (precio *0.21)))
-
-
-
-
+        document.write("precio con iva " + (precio + (precio * 0.21)))
 
     </script>
 </body>
