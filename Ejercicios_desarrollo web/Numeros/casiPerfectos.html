@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <script>
+
+
+        function esCasiPerfecto(n) {
+          if (n <= 1) return false;
+        
+          let suma = 1;
+          for (let i = 2; i * i <= n; i++) {
+            if (n % i === 0) {
+              suma += i;
+              if (i !== n / i && n / i !== n) {
+                suma += n / i;
+              }
+            }
+          }
+          return suma === n - 1;
+        }
+        
+        // Ejemplo
+        console.log(esCasiPerfecto(16)); // true
+        console.log(esCasiPerfecto(32)); // true
+        console.log(esCasiPerfecto(28)); // false
+
+
+    </script>
+
+
+</body>
+</html>

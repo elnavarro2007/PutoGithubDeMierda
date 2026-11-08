@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+
+        function esCuasiprimo(n) {
+          if (n < 6) return false;
+        
+          for (let i = 2; i <= Math.sqrt(n); i++) {
+            if (n % i === 0) {
+              const otro = n / i;
+              if (esPrimo(i) && esPrimo(otro) && i !== otro) {
+                return true;
+              }
+            }
+          }
+          return false;
+        }
+        
+        // Necesita la función esPrimo
+        function esPrimo(n) {
+          if (n <= 1) return false;
+          if (n <= 3) return true;
+          if (n % 2 === 0 || n % 3 === 0) return false;
+          for (let i = 5; i * i <= n; i += 6) {
+            if (n % i === 0 || n % (i + 2) === 0) return false;
+          }
+          return true;
+        }
+        
+        // Ejemplo
+        console.log(esCuasiprimo(15)); // true (3×5)
+        console.log(esCuasiprimo(9));  // false (3×3)
+        console.log(esCuasiprimo(21)); // true (3×7)
+
+
+
+    </script>
+</body>
+</html>

@@ -11,10 +11,16 @@
         border: 1px solid;
         padding: 10px;
     }
+
+
+    .casi-primo {
+            background-color: yellow;
+    }
+
 </style>
 <body>
     
-
+    <button id="btnCalcular">Calcular casi primos</button>
     <table id= "tabla" border= "1px">
         <tbody id="cuerpo">
 
@@ -38,6 +44,37 @@
             }
             cuerpo.appendChild(fila)
         }
+
+        function esCasiPrimo(n) {
+            if (n < 4) return false;
+
+            let contador = 0;
+
+            for (let i = 1; i <= n; i++) {
+                if (n % i === 0) {
+                    contador++;
+                    if (contador > 3) return false;
+                }
+            }
+
+            return contador === 3;
+        }
+
+
+
+        document.getElementById("btnCalcular").addEventListener("click", function () {
+            const celdas = document.querySelectorAll("#cuerpo td");
+
+            celdas.forEach(celda => {
+                const numero = parseInt(celda.textContent);
+
+                if (esCasiPrimo(numero)) {
+                    celda.classList.add("casi-primo");
+                }
+            });
+        });
+
+
     </script>
 </body>
 </html>
