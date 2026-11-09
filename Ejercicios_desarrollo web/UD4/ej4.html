@@ -21,8 +21,21 @@
         parrafos.forEach(parrafo => {
 
             parrafo.addEventListener ('click', function(){
-                
+                parrafo.style.display = "none"
             })
+
+
+            parrafo.addEventListener ('dblclick', function(){
+                parrafo.remove()
+            })
+        })
+
+
+
+        boton.addEventListener('click', function(){
+            parrafos.forEach(parrafo => {
+                parrafo.style.display = "block";
+            });
         })
     </script>
 </body>
