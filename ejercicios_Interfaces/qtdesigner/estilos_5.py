@@ -13,7 +13,8 @@ class MainWindow(QMainWindow, Ui_MainWindow):
 
 app = QApplication([])
 
-
+with open("Estilos/estilo6.qss","r") as f:
+    app.setStyleSheet(f.read())
 
 ventana = MainWindow()
 ventana.show()
