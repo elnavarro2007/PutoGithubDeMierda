@@ -1,0 +1,556 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>VELVET &amp; SILK | Plugs Anales y Lubricantes Especializados</title>
+    <style>
+        :root {
+            --bg-dark: #121013;
+            --bg-card: #1d1a1f;
+            --accent: #b84a62;
+            --accent-hover: #d15b75;
+            --gold: #d4af37;
+            --text-main: #f3eff5;
+            --text-muted: #a89fb0;
+            --border: #2c2730;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: var(--bg-dark);
+            color: var(--text-main);
+            line-height: 1.6;
+        }
+
+        body.locked {
+            overflow: hidden;
+        }
+
+        /* ---------- Modal +18 ---------- */
+        #age-modal {
+            position: fixed;
+            inset: 0;
+            background: rgba(0, 0, 0, 0.94);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 99999;
+        }
+
+        #age-modal.hidden {
+            display: none;
+        }
+
+        .modal-content {
+            background: var(--bg-card);
+            padding: 2.5rem;
+            border-radius: 12px;
+            max-width: 450px;
+            width: 90%;
+            text-align: center;
+            border: 1px solid var(--accent);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.8);
+        }
+
+        .modal-content h2 {
+            color: var(--gold);
+            margin-bottom: 1rem;
+            letter-spacing: 2px;
+        }
+
+        .modal-buttons {
+            margin-top: 1.5rem;
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        /* ---------- Botones ---------- */
+        .btn {
+            padding: 0.8rem 1.6rem;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+            font-weight: 600;
+            transition: all 0.2s ease;
+            font-size: 0.95rem;
+            font-family: inherit;
+        }
+
+        .btn-primary {
+            background-color: var(--accent);
+            color: white;
+        }
+
+        .btn-primary:hover {
+            background-color: var(--accent-hover);
+        }
+
+        .btn-outline {
+            background: transparent;
+            border: 1px solid var(--text-muted);
+            color: var(--text-muted);
+        }
+
+        .btn-outline:hover {
+            border-color: var(--text-main);
+            color: var(--text-main);
+        }
+
+        /* ---------- Cabecera ---------- */
+        header {
+            background-color: rgba(18, 16, 19, 0.95);
+            padding: 1.2rem 5%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 700;
+            letter-spacing: 3px;
+            color: var(--text-main);
+        }
+
+        .logo span {
+            color: var(--accent);
+        }
+
+        .cart-btn {
+            background: var(--bg-card);
+            color: var(--text-main);
+            border: 1px solid var(--accent);
+            padding: 0.6rem 1.2rem;
+            border-radius: 20px;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-family: inherit;
+            font-size: 0.95rem;
+        }
+
+        /* ---------- Hero ---------- */
+        .hero {
+            text-align: center;
+            padding: 4.5rem 5%;
+            background: radial-gradient(circle at center, #2b1922 0%, var(--bg-dark) 75%);
+        }
+
+        .hero h1 {
+            font-size: 2.6rem;
+            margin-bottom: 1rem;
+            font-weight: 300;
+        }
+
+        .hero p {
+            color: var(--text-muted);
+            max-width: 650px;
+            margin: 0 auto 2rem auto;
+        }
+
+        .cta-group {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            margin-bottom: 2.5rem;
+            flex-wrap: wrap;
+        }
+
+        .badges {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            font-size: 0.85rem;
+            color: var(--gold);
+            flex-wrap: wrap;
+        }
+
+        /* ---------- Tienda ---------- */
+        #shop-section {
+            padding-top: 2rem;
+            min-height: 400px;
+            scroll-margin-top: 70px;
+        }
+
+        .filters {
+            display: flex;
+            justify-content: center;
+            gap: 0.8rem;
+            padding: 1.5rem 5% 1rem;
+            flex-wrap: wrap;
+        }
+
+        .filter-btn {
+            background: var(--bg-card);
+            color: var(--text-muted);
+            border: 1px solid var(--border);
+            padding: 0.6rem 1.3rem;
+            border-radius: 20px;
+            cursor: pointer;
+            font-family: inherit;
+        }
+
+        .filter-btn.active,
+        .filter-btn:hover {
+            background: var(--accent);
+            color: white;
+            border-color: var(--accent);
+        }
+
+        .catalog {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 2rem;
+            padding: 2rem 5% 4rem;
+            max-width: 1300px;
+            margin: 0 auto;
+        }
+
+        .empty-msg {
+            grid-column: 1 / -1;
+            text-align: center;
+            color: var(--text-muted);
+        }
+
+        .product-card {
+            background: var(--bg-card);
+            border-radius: 10px;
+            overflow: hidden;
+            border: 1px solid var(--border);
+            display: flex;
+            flex-direction: column;
+            transition: border-color 0.2s ease;
+        }
+
+        .product-card:hover {
+            border-color: var(--accent);
+        }
+
+        .product-img {
+            height: 190px;
+            background: #262229;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            padding: 1rem;
+            text-align: center;
+        }
+
+        .product-icon {
+            font-size: 2.8rem;
+            color: var(--accent);
+            margin-bottom: 0.5rem;
+        }
+
+        .product-type-label {
+            font-size: 0.75rem;
+            color: var(--text-muted);
+            letter-spacing: 1px;
+            text-transform: uppercase;
+        }
+
+        .tag {
+            position: absolute;
+            top: 10px;
+            left: 10px;
+            background: rgba(0, 0, 0, 0.75);
+            color: var(--gold);
+            padding: 0.25rem 0.6rem;
+            font-size: 0.72rem;
+            border-radius: 4px;
+            text-transform: uppercase;
+            font-weight: 600;
+        }
+
+        .product-info {
+            padding: 1.5rem;
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        .product-title {
+            font-size: 1.15rem;
+            margin-bottom: 0.5rem;
+            color: var(--text-main);
+        }
+
+        .product-specs {
+            font-size: 0.85rem;
+            color: var(--text-muted);
+            margin-bottom: 0.8rem;
+        }
+
+        .compatibility-note {
+            font-size: 0.78rem;
+            color: var(--gold);
+            background: rgba(212, 175, 55, 0.1);
+            padding: 0.4rem 0.6rem;
+            border-radius: 4px;
+            margin-bottom: 0.5rem;
+        }
+
+        .product-footer {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-top: 1rem;
+            padding-top: 1rem;
+            border-top: 1px solid var(--border);
+        }
+
+        .price {
+            font-size: 1.3rem;
+            font-weight: 700;
+        }
+
+        /* ---------- Carrito ---------- */
+        #cart-overlay {
+            position: fixed;
+            inset: 0;
+            background: rgba(0, 0, 0, 0.6);
+            opacity: 0;
+            pointer-events: none;
+            transition: opacity 0.3s ease;
+            z-index: 150;
+        }
+
+        #cart-overlay.open {
+            opacity: 1;
+            pointer-events: auto;
+        }
+
+        #cart-sidebar {
+            position: fixed;
+            top: 0;
+            right: 0;
+            width: 100%;
+            max-width: 380px;
+            height: 100vh;
+            background: var(--bg-card);
+            border-left: 1px solid var(--border);
+            padding: 2rem;
+            transform: translateX(100%);
+            transition: transform 0.3s ease;
+            z-index: 200;
+            display: flex;
+            flex-direction: column;
+        }
+
+        #cart-sidebar.open {
+            transform: translateX(0);
+        }
+
+        .cart-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding-bottom: 1rem;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .close-cart {
+            background: none;
+            border: none;
+            color: var(--text-main);
+            font-size: 1.5rem;
+            cursor: pointer;
+        }
+
+        #cart-items {
+            flex-grow: 1;
+            overflow-y: auto;
+            margin: 1rem 0;
+        }
+
+        .cart-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.8rem 0;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .qty-controls {
+            display: flex;
+            align-items: center;
+            gap: 0.4rem;
+        }
+
+        .qty-btn {
+            width: 28px;
+            height: 28px;
+            border-radius: 50%;
+            border: 1px solid var(--text-muted);
+            background: transparent;
+            color: var(--text-main);
+            cursor: pointer;
+        }
+
+        .qty-btn:hover {
+            border-color: var(--accent);
+            color: var(--accent);
+        }
+
+        .remove-btn {
+            background: none;
+            border: none;
+            color: var(--accent-hover);
+            cursor: pointer;
+            font-size: 0.8rem;
+        }
+
+        .cart-total {
+            padding-top: 1rem;
+            border-top: 1px solid var(--border);
+        }
+
+        .cart-total p {
+            display: flex;
+            justify-content: space-between;
+            font-size: 1.1rem;
+            margin-bottom: 1rem;
+        }
+
+        .cart-total .btn {
+            width: 100%;
+        }
+
+        footer {
+            text-align: center;
+            padding: 2.5rem 5%;
+            background: #0c0a0d;
+            color: var(--text-muted);
+            font-size: 0.85rem;
+        }
+
+        @media (max-width: 600px) {
+            .hero h1 {
+                font-size: 1.9rem;
+            }
+
+            .catalog {
+                gap: 1.2rem;
+            }
+        }
+    </style>
+</head>
+
+<body class="locked">
+
+    <!-- Datos de productos -->
+    <script id="productos-json" type="application/json">
+[
+{ "id": 1, "name": "Silk Touch Mini", "type": "plug", "category": "principiantes", "icon": "✦", "typeLabel": "Plug de Iniciación", "material": "Silicona Médica Ultra Suave", "size": "7.5 cm largo | 2.5 cm diámetro", "note": "Compatible solo con lubricante base agua", "price": 24.90, "tag": "Iniciación" },
+{ "id": 2, "name": "Obsidian Steel Jewel", "type": "plug", "category": "metal", "icon": "◆", "typeLabel": "Plug Metálico", "material": "Acero Inoxidable Quirúrgico", "size": "8.5 cm largo | 3.2 cm diámetro", "note": "Apto para juego térmico (frío/calor)", "price": 39.50, "tag": "Acero" },
+{ "id": 3, "name": "Pulse Wave Remote", "type": "plug", "category": "vibracion", "icon": "〰", "typeLabel": "Plug Vibrador", "material": "Silicona + Mando Inalámbrico", "size": "10 cm largo | 3.4 cm diámetro", "note": "10 patrones de vibración silenciosa", "price": 59.00, "tag": "Vibración" },
+{ "id": 4, "name": "Crystal Tear Drop", "type": "plug", "category": "metal", "icon": "❖", "typeLabel": "Plug de Cristal", "material": "Cristal Borosilicato Templado", "size": "9.5 cm largo | 3.0 cm diámetro", "note": "Compatible con todo tipo de lubricantes", "price": 44.00, "tag": "Cristal" },
+{ "id": 5, "name": "Progressive Set (3 Piezas)", "type": "plug", "category": "principiantes", "icon": "⁂", "typeLabel": "Kit de Dilatación", "material": "Silicona Hipoalergénica", "size": "Tallas S (2.4cm), M (3.0cm) y L (3.6cm)", "note": "Ideal para entrenamiento progresivo", "price": 49.90, "tag": "Pack 3 Tallas" },
+{ "id": 6, "name": "HydroGlide Anal Thick (150 ml)", "type": "lubricante", "category": "lubricantes", "icon": "💧", "typeLabel": "Lubricante Base Agua", "material": "Fórmula Densa de Larga Duración", "size": "Envase dosificador 150 ml", "note": "100% seguro con plugs de silicona", "price": 16.50, "tag": "Base Agua" },
+{ "id": 7, "name": "PureSilk Silicone Extreme (100 ml)", "type": "lubricante", "category": "lubricantes", "icon": "✧", "typeLabel": "Lubricante Base Silicona", "material": "Silicona Pura de Grado Médico", "size": "Envase 100 ml | Resistente al agua", "note": "Usar solo con plugs de acero o cristal", "price": 21.00, "tag": "Base Silicona" },
+{ "id": 8, "name": "AloeComfort HybriGel (120 ml)", "type": "lubricante", "category": "lubricantes", "icon": "🌿", "typeLabel": "Lubricante Hidratante", "material": "Base Agua con Aloe Vera y Pantenol", "size": "Envase 120 ml | Sin glicerina ni parabenos", "note": "Efecto calmante y alta deslizabilidad", "price": 18.90, "tag": "Piel Sensible" },
+{ "id": 9, "name": "Kit Iniciación: Plug Mini + Lub Base Agua", "type": "pack", "category": "principiantes", "icon": "🎁", "typeLabel": "Pack Combinado", "material": "Plug Silicona S + HydroGlide 150ml", "size": "Incluye bolsa de guardado de satén", "note": "Todo lo necesario para empezar seguro", "price": 36.00, "tag": "Ahorro Pack" }
+]
+</script>
+
+    <!-- Modal de verificación de edad -->
+    <div id="age-modal" role="dialog" aria-modal="true" aria-labelledby="age-title">
+        <div class="modal-content">
+            <h2 id="age-title">+18 ACCESO RESTRINGIDO</h2>
+            <p>Esta tienda ofrece artículos de bienestar íntimo (plugs anales y lubricantes) exclusivamente para
+                adultos.</p>
+            <div class="modal-buttons">
+                <button type="button" class="btn btn-primary" onclick="confirmAge()">Tengo 18 años o más</button>
+                <button type="button" class="btn btn-outline" onclick="exitSite()">Salir</button>
+            </div>
+        </div>
+    </div>
+
+    <header>
+        <div class="logo">VELVET<span>&amp;</span>SILK</div>
+        <button type="button" class="cart-btn" onclick="toggleCart()">
+            Carrito <span id="cart-count">(0)</span>
+        </button>
+    </header>
+
+    <section class="hero">
+        <h1>Plugs Anales y Lubricación Especializada</h1>
+        <p>Descubre nuestra selección de diseños ergonómicos de grado médico y lubricantes de alta densidad formulados
+            para máximo confort y seguridad.</p>
+        <div class="cta-group">
+            <button type="button" class="btn btn-primary" onclick="exploreCatalog('todos')">Ver Todos los Plugs y
+                Lubricantes</button>
+            <button type="button" class="btn btn-outline" onclick="exploreCatalog('lubricantes')">Solo Lubricantes
+                Anales</button>
+        </div>
+        <div class="badges">
+            <span>✓ Silicona Médica, Acero y Cristal</span>
+            <span>✓ Lubricantes Base Agua y Silicona</span>
+            <span>✓ Envío 100% Discreto en Caja Neutra</span>
+        </div>
+    </section>
+
+    <main id="shop-section">
+        <div class="filters">
+            <button type="button" class="filter-btn active" id="btn-todos" onclick="filterProducts('todos', this)">Todo
+                el Catálogo</button>
+            <button type="button" class="filter-btn" id="btn-plugs" onclick="filterProducts('plugs', this)">Todos los
+                Plugs</button>
+            <button type="button" class="filter-btn" id="btn-principiantes"
+                onclick="filterProducts('principiantes', this)">Plugs Principiantes</button>
+            <button type="button" class="filter-btn" id="btn-metal" onclick="filterProducts('metal', this)">Acero y
+                Cristal</button>
+            <button type="button" class="filter-btn" id="btn-vibracion"
+                onclick="filterProducts('vibracion', this)">Plugs con Vibración</button>
+            <button type="button" class="filter-btn" id="btn-lubricantes"
+                onclick="filterProducts('lubricantes', this)">Lubricantes Anales</button>
+        </div>
+        <div class="catalog" id="product-grid"></div>
+    </main>
+
+    <!-- Carrito lateral -->
+    <div id="cart-overlay" onclick="toggleCart()"></div>
+    <aside id="cart-sidebar" aria-label="Carrito">
+        <div class="cart-header">
+            <h3>Tu Pedido Discreto</h3>
+            <button type="button" class="close-cart" onclick="toggleCart()" aria-label="Cerrar carrito">×</button>
+        </div>
+        <div id="cart-items"></div>
+        <div class="cart-total">
+            <p><span>Total:</span> <strong id="total-price">0.00 €</strong></p>
+            <button type="button" class="btn btn-primary" onclick="checkout()">Finalizar Compra</button>
+        </div>
+    </aside>
+
+    <footer>
+        <p>VELVET &amp; SILK © 2026 - Productos testados dermatológicamente y libres de ftalatos.</p>
+        <p>Nota de seguridad: Utiliza siempre lubricantes de base agua con juguetes de silicona.</p>
+    </footer>
+
+    <script src="app.js"></script>
+</body>
+
+</html>

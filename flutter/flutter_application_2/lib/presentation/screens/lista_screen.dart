@@ -8,7 +8,7 @@ class Tarea {
   Tarea({required this.titulo, this.completada = false});
 }
 
-// 2. Tu pantalla convertida a StatefulWidget
+
 class ListaScreen extends StatefulWidget {
   const ListaScreen({super.key});
 
@@ -54,7 +54,7 @@ class _ListaScreenState extends State<ListaScreen> {
       ),
       body: Column(
         children: [
-          // Caja de texto y botón para añadir
+          // Caja del puto texto 
           Padding(
             padding: const EdgeInsets.all(16.0),
             child: Row(
@@ -63,7 +63,7 @@ class _ListaScreenState extends State<ListaScreen> {
                   child: TextField(
                     controller: _controladorTexto,
                     decoration: const InputDecoration(
-                      hintText: 'Escribe una nueva tarea...',
+                      hintText: 'Escribe unua tarea.',
                       border: OutlineInputBorder(),
                     ),
                     onSubmitted: _agregarTarea,
@@ -80,7 +80,7 @@ class _ListaScreenState extends State<ListaScreen> {
               ],
             ),
           ),
-          // Lista dinámica que ocupa el resto de la pantalla
+          // La lista 
           Expanded(
             child: _tareas.isEmpty
                 ? const Center(
